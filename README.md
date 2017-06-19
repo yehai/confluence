@@ -1,14 +1,14 @@
 # Dockerized Atlassian Confluence
 
-[![Circle CI](https://circleci.com/gh/blacklabelops/confluence/tree/master.svg?style=shield)](https://circleci.com/gh/blacklabelops/confluence/tree/master)
+[![Circle CI](https://circleci.com/gh/blacklabelops/confluence/tree/confluence5.svg?style=shield)](https://circleci.com/gh/blacklabelops/confluence/tree/confluence5)
 
 "One place for all your team's work - Spend less time hunting things down and more time making things happen. Organize your work, create documents, and discuss everything in one place." - [[Source](https://www.atlassian.com/software/confluence)]
 
 ## Supported tags and respective Dockerfile links
 
-| Product |Version | Tags  | Dockerfile |
-|---------|--------|-------|------------|
-| Confluence | 5.10.7 | 5.10.7, latest | [Dockerfile](https://github.com/blacklabelops/confluence/blob/master/Dockerfile) |
+| Product |Version | Tags  |
+|---------|--------|-------|
+| Confluence | 5.10.8 | 5.10.8 |
 
 ## Related Images
 
