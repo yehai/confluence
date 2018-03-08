@@ -1,7 +1,7 @@
 FROM blacklabelops/java:server-jre.8
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
-ARG CONFLUENCE_VERSION=6.7.1
+ARG CONFLUENCE_VERSION=6.7.2
 # permissions
 ARG CONTAINER_UID=1000
 ARG CONTAINER_GID=1000
@@ -25,7 +25,6 @@ RUN export CONTAINER_USER=confluence                &&  \
             -h /home/$CONTAINER_USER                    \
             -s /bin/bash                                \
             -S $CONTAINER_USER                      &&  \
-
     apk add --update                                    \
       ca-certificates                                   \
       gzip                                              \
@@ -50,6 +49,7 @@ RUN export CONTAINER_USER=confluence                &&  \
     && mkdir -p ${CONF_INSTALL}/conf \
     && wget -O /tmp/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz http://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz && \
     tar xzf /tmp/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz --strip-components=1 -C ${CONF_INSTALL} && \
+    && rm -f  "${CONF_INSTALL}/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar" \
     echo "confluence.home=${CONF_HOME}" > ${CONF_INSTALL}/confluence/WEB-INF/classes/confluence-init.properties && \
     # Install database drivers
     rm -f                                               \
@@ -84,6 +84,8 @@ RUN export CONTAINER_USER=confluence                &&  \
     rm -rf /var/cache/apk/*                         &&  \
     rm -rf /tmp/*                                   &&  \
     rm -rf /var/log/*
+
+COPY ./${CONF_VERSION}/atlassian-extras-decoder-v2-3.3.0.jar "${CONF_INSTALL}/confluence/WEB-INF/lib/"
 
 # Image Metadata
 LABEL com.blacklabelops.application.confluence.version=$CONFLUENCE_VERSION \
