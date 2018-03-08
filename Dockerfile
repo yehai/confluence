@@ -85,7 +85,7 @@ RUN export CONTAINER_USER=confluence                &&  \
     rm -rf /tmp/*                                   &&  \
     rm -rf /var/log/*
 
-COPY ./${CONF_VERSION}/atlassian-extras-decoder-v2-3.3.0.jar "${CONF_INSTALL}/confluence/WEB-INF/lib/"
+COPY ./${CONFLUENCE_VERSION}/atlassian-extras-decoder-v2-3.3.0.jar "${CONF_INSTALL}/confluence/WEB-INF/lib/"
 
 # Image Metadata
 LABEL com.blacklabelops.application.confluence.version=$CONFLUENCE_VERSION \
