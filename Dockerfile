@@ -49,7 +49,7 @@ RUN export CONTAINER_USER=confluence                &&  \
     && mkdir -p ${CONF_INSTALL}/conf \
     && wget -O /tmp/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz http://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz && \
     tar xzf /tmp/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz --strip-components=1 -C ${CONF_INSTALL} && \
-    && rm -f  "${CONF_INSTALL}/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar" \
+    rm -f  "${CONF_INSTALL}/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar" \
     echo "confluence.home=${CONF_HOME}" > ${CONF_INSTALL}/confluence/WEB-INF/classes/confluence-init.properties && \
     # Install database drivers
     rm -f                                               \
