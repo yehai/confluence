@@ -90,7 +90,7 @@ COPY ./${CONFLUENCE_VERSION}/atlassian-extras-decoder-v2-*.jar "${CONF_INSTALL}/
 COPY ./${CONFLUENCE_VERSION}/atlassian-universal-plugin-manager-plugin-*.jar "${CONF_INSTALL}/confluence/WEB-INF/atlassian-bundled-plugins/"
 COPY ./hipchat.phoneyou.net.crt /tmp/
 
-RUN keytool -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -noprompt -importcert -alias hipchat.phoneyou.net -file /tmp/hipchat.phoneyou.net.crt 
+RUN keytool -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -importcert -alias hipchat.phoneyou.net -file /tmp/hipchat.phoneyou.net.crt 
 
 
 # Image Metadata
